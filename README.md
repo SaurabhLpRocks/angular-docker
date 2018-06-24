@@ -1,3 +1,41 @@
+# Angular CLI with Docker
+
+This is an example app created with the Angular CLI that runs with Docker
+
+
+I ran `ng new myapp` to generate the app. Then added the 4 docker files:
+
+```bash
+.dockerignore
+docker-compose.yml
+docker-compose.debug.yml
+Dockerfile
+```
+
+## Running
+
+Two options are available. I prefer the docker compose technique
+
+Option 1) You can run docker build and docker run
+
+  ```
+  docker build --rm -f Dockerfile -t angular-cli-docker-ootb:latest .
+  docker run --rm -d -p 443:443 -p 80:80 angular-cli-docker-ootb:latest
+  ```
+
+Option 2) You can run docker compose `docker-compose up -d --build`
+
+## Running docker.componse.debug.yml
+
+Run following command:
+```
+docker-compose -f docker-compose.debug.yml up -d --build
+```
+## Debugging Node code with VS Code
+
+1st run docker.compose.debug.yml as stated above, then see below link
+https://stackoverflow.com/questions/46500639/how-do-i-use-docker-compose-debug-yml-to-debug-my-node-running-in-docker
+
 # NgDocker
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.

@@ -29,7 +29,7 @@ Option 2) You can run docker compose `docker-compose up -d --build`
 
 Run following command:
 ```
-docker-compose -f docker-compose.debug.yml up -d --build
+docker-compose -f docker-compose.dev.yml up -d --build
 ```
 ## Debugging Node code with VS Code
 

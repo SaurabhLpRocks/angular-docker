@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  angular-nginx-docker:
+    image: ng-docker-dev
+    build: 
+      context: .
+      dockerfile: .docker/dev.dockerfile
+    environment:
+      NODE_ENV: development
+    volumes: 
+      - "/dist/ng-docker:/usr/share/nginx/html"
+    ports:
+      - 8080:80
+    ## set your startup file here
+    command: [nginx-debug, '-g', 'daemon off;']

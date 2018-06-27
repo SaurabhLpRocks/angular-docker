@@ -1,9 +1,9 @@
 FROM nginx:alpine
-LABEL author="John Papa"
+LABEL author="Saurabh Palatkar"
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Uncomment following if you are building the Angular code inside docker
 COPY /dist/ng-docker /usr/share/nginx/html
+RUN ls /usr/share/nginx/html
 RUN ps aux | grep nginx
 RUN chown -R root:root /usr/share/nginx/html/index.html
 RUN chmod -R 755 /usr/share/nginx/html
@@ -14,8 +14,5 @@ RUN chmod o+x /usr/share/nginx
 RUN chmod o+x /usr/share/nginx/html
 # RUN ls /usr/share/nginx/html
 # RUN ls /etc/nginx
-
-# Comment following line if you are building the Angular app inside docker:
-# COPY dist/ng-docker /usr/share/nginx/html
 EXPOSE 80 443
 CMD [ "nginx", "-g", "daemon off;" ]
